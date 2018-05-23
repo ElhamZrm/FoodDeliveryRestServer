@@ -12,17 +12,17 @@
     <rabbit:admin connection-factory="connectionFactory" />
 
 	<!-- ******************* TOPIC *************************** -->
-    <rabbit:queue name="purchasesPhone" />
+    <rabbit:queue name="customerOrders" />
  
     <rabbit:topic-exchange name="order">
        <rabbit:bindings>
-          <rabbit:binding queue="purchasesPhone" pattern="purchases.phone.#" />
+          <rabbit:binding queue="customerOrders" pattern="customer.orders" />
        </rabbit:bindings>
     </rabbit:topic-exchange>
     
 	<!-- **************** TOPIC PRODUCER  -->
     <rabbit:template id="topicTemplate" connection-factory="connectionFactory"
-                     reply-timeout="2000" routing-key="purchases.phone"      
+                     reply-timeout="2000" routing-key="customer.orders"      
                      exchange="order" />
 
 

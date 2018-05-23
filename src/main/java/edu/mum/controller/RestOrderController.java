@@ -22,14 +22,12 @@ import edu.mum.domain.Order;
 @RequestMapping({"/publishOrder"})
 public class RestOrderController {
 	
-	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.POST)
 	public Order publish(@RequestBody Order order) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:META-INF/spring/order-app-context.xml");
         RabbitTemplate topicTemplate =  context.getBean("topicTemplate",RabbitTemplate.class);
      	MessagingService MessagingService = new MessagingServiceImpl();
      	MessagingService.publish(topicTemplate,order);
-
 		return order;
 		
 	}
