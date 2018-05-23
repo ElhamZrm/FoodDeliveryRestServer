@@ -21,7 +21,6 @@ public class RestGreetingController {
 	private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
     
-    
 	@RequestMapping("/greeting")
 	public Greeting greeting(@RequestParam(value="name" , defaultValue="world") String name) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:META-INF/spring/order-app-context.xml");
