@@ -2,12 +2,16 @@ package edu.mum.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import edu.mum.amqp.MessagingService;
+import edu.mum.amqp.MessagingServiceImpl;
+import edu.mum.domain.Greeting;
+import edu.mum.domain.Order;
 
 
 
