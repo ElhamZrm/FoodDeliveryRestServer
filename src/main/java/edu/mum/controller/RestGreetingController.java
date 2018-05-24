@@ -27,6 +27,9 @@ public class RestGreetingController {
         RabbitTemplate topicTemplate =  context.getBean("topicTemplate",RabbitTemplate.class);
      	MessagingService MessagingService = new MessagingServiceImpl();
      	MessagingService.publish(topicTemplate,new Order());
+
+
+		
 		return new Greeting(counter.incrementAndGet(),
                 String.format(template, name));
 	}

@@ -22,6 +22,16 @@ import edu.mum.domain.Order;
 @RequestMapping({"/publishOrder"})
 public class RestOrderController {
 	
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public Order publish() {
+		Order order = new Order();
+		order.setName("Elham");
+		order.setAddress("sdfajskldjfalskdjfalskdjf");
+		return order;
+		
+	}
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public Order publish(@RequestBody Order order) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:META-INF/spring/order-app-context.xml");

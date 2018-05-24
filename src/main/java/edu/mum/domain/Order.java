@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import org.hibernate.validator.constraints.NotEmpty;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -22,67 +21,70 @@ public class Order {
 	
 	@Column(length = 16)
 	@NotEmpty(message= "{String.empty}")
-	private String firstName;
+	private String name;
 	
-	@Column(length = 16)
-	@Size(min=6, max = 16, message= "{Size.name.validation}")
-	private String lastName;
-
+	
 	private LocalDate time;
  	
 
 	@Size(min=6, max = 255, message= "{Size.name.validation}")
 	private String address;
-
+	
+	@NotEmpty
+	private String email;
+	
+	@NotEmpty
+	private String location;
 
 	public long getId() {
 		return id;
 	}
 
-
 	public void setId(long id) {
 		this.id = id;
 	}
 
-
-	public String getFirstName() {
-		return firstName;
+	public String getName() {
+		return name;
 	}
 
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setName(String name) {
+		this.name = name;
 	}
-
-
-	public String getLastName() {
-		return lastName;
-	}
-
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
 
 	public LocalDate getTime() {
 		return time;
 	}
 
-
 	public void setTime(LocalDate time) {
 		this.time = time;
 	}
-
 
 	public String getAddress() {
 		return address;
 	}
 
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	
+
 	
 }
 
