@@ -27,7 +27,12 @@ public class RestOrderController {
 	public Order publish() {
 		Order order = new Order();
 		order.setName("Elham");
-		order.setAddress("sdfajskldjfalskdjfalskdjf");
+		order.setEmail("ezarrinmehr@mum.edu");
+		order.setAddress("maharishi university iowa");
+		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:META-INF/spring/order-app-context.xml");
+        RabbitTemplate topicTemplate =  context.getBean("topicTemplate",RabbitTemplate.class);
+     	MessagingService MessagingService = new MessagingServiceImpl();
+     	MessagingService.publish(topicTemplate,order);
 		return order;
 		
 	}
